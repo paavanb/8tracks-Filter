@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "8Tracks Filter",
+  "description": "This extension applies a SFW mode to 8tracks, hiding all mix covers",
+  "version": "1.0",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+  "background", "storage"
+  ],
+  "browser_action": {
+    "default_icon": "img/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.8tracks.com/*"],
+      "js": ["jquery.js", "filter.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
