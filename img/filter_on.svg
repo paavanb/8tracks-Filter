@@ -15,9 +15,9 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="filter_on.svg"
-   inkscape:export-filename="C:\Paavan\Projects\8tracks-Filter\src\img\19_filter_on.png"
-   inkscape:export-xdpi="45"
-   inkscape:export-ydpi="45">
+   inkscape:export-filename="C:\Paavan\Projects\8tracks-Filter\src\img\38_filter_on.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8"
+     inkscape:zoom="6.0569278"
      inkscape:cx="19"
-     inkscape:cy="19"
+     inkscape:cy="15.697996"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,7 +37,15 @@
      inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4394"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -57,7 +65,7 @@
      transform="translate(0,-1014.3622)">
     <path
        style="fill:#122c4b;fill-opacity:1;stroke:#122c4b;stroke-width:1.9354409px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 17.143862,1046.8945 4.010615,-2.8146 0,-13.1555 10.280729,-9.0945 -24.9674855,0.058 10.6478985,8.8967 z"
+       d="m 17,1047.3622 4,-3 0,-13 11,-10 -26,0 11,10 z"
        id="path2985"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccc" />
