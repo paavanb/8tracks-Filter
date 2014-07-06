@@ -18,12 +18,23 @@ function setIcon(tabId) {
 	})
 }
 
-function checkValidUrl(tabId, changeInfo, tab) {
-  if(tab.url.indexOf("8tracks.com") > 0) {
-    chrome.pageAction.show(tabId)
-    // need to reset the icon to reflect the state
-    setIcon(tabId);
+function checkValidUrl(tab) {
+	if(tab.url.indexOf("8tracks.com") > 0) {
+    	chrome.pageAction.show(tab.id)
+    	// need to reset the icon to reflect the state
+    	setIcon(tab.id);
   }
+}
+
+
+//for the onUpdated listener
+function checkValidUrlUpdated(tabId, changeInfo, tab) {
+	checkValidUrl(tab)
+}
+
+//for the onReplaced listener (in case page is loaded from cache)
+function checkValidUrlReplaced(addedTabId, removedTabId) {
+	chrome.tabs.get(addedTabId, checkValidUrl)
 }
 
 function toggle(tab) {
@@ -45,5 +56,6 @@ function toggle(tab) {
 
 chrome.runtime.onInstalled.addListener(initialize);
 
-chrome.tabs.onUpdated.addListener(checkValidUrl);
+chrome.tabs.onUpdated.addListener(checkValidUrlUpdated);
+chrome.tabs.onReplaced.addListener(checkValidUrlReplaced);
 chrome.pageAction.onClicked.addListener(toggle);
