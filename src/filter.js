@@ -1,6 +1,6 @@
 function filter() {
   chrome.storage.local.get("state", function(result) { 
-  										if(result["state"] == "sfw") { 
+  										if(result["state"] == "on") { 
   											$("img.cover").remove() 
   										} 
   									});

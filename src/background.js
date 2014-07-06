@@ -1,23 +1,49 @@
-var sfw = "sfw"
-var nsfw = "nsfw"
+var icon_filter_off = {"19": "img/19_filter_off.png",
+					  "38": "img/38_filter_off.png"}
 
-function opposite(result) {
-	if(result["state"] != sfw) {
-		newState = sfw
-		bgcolor = "#00AA00"
-	}
-	else {
-		newState = nsfw
-		bgcolor = "#DD0000"
-	}
-	chrome.browserAction.setBadgeText({text: newState})
-	chrome.browserAction.setBadgeBackgroundColor({color: bgcolor})
-	chrome.storage.local.set({state: newState})
+var icon_filter_on = {"19": "img/19_filter_on.png",
+					 "38": "img/38_filter_on.png"}
+// make it easy to set the icon
+icon = {"on": icon_filter_on, "off": icon_filter_off}
+
+function initialize() {
+	chrome.storage.local.set(({state: "on"}))
 }
 
-function toggle() {
-	chrome.storage.local.get("state", opposite)
+function setIcon(tabId) {
+	chrome.storage.local.get("state", function (result) {
+		chrome.pageAction.setTitle({tabId: tabId, title: "8tracks Filter " + result["state"]})
+
+		chrome.pageAction.setIcon({tabId: tabId, path: icon[result["state"]]})
+	})
 }
 
-chrome.browserAction.onClicked.addListener(toggle)
-toggle();
+function checkValidUrl(tabId, changeInfo, tab) {
+  if(tab.url.indexOf("8tracks.com") > 0) {
+    chrome.pageAction.show(tabId)
+    // need to reset the icon to reflect the state
+    setIcon(tabId);
+  }
+}
+
+function toggle(tab) {
+  	chrome.storage.local.get("state", function (result) {
+  					newState = ""
+					if(result["state"] == "on") {
+					  newState = "off"
+					} else {
+					  newState = "on"
+					}
+					//update the little tooltip to reflect current state
+					chrome.pageAction.setTitle({tabId: tab.id, title: "8tracks Filter " + newState})
+					//so that we update the page with the new filter settings
+					chrome.tabs.reload()
+					//store the state of the new filter settings so we remember across browser sessions
+					chrome.storage.local.set({state: newState})
+})
+}
+
+chrome.runtime.onInstalled.addListener(initialize);
+
+chrome.tabs.onUpdated.addListener(checkValidUrl);
+chrome.pageAction.onClicked.addListener(toggle);
