@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "8tracks Filter",
-  "description": "This extension applies a SFW mode to 8tracks, hiding all mix covers",
+  "description": "This extension applies a SFW mode to 8tracks.com, hiding all mix covers",
   "version": "1.0",
   "icons": {
     "16": "img/filter_16.png",
