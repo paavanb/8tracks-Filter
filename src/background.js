@@ -1,8 +1,8 @@
-var icon_filter_off = {"19": "img/19_filter_off.png",
-					  "38": "img/38_filter_off.png"}
+var icon_filter_off = {"19": "img/filter_off_19.png",
+					  "38": "img/filter_off_38.png"}
 
-var icon_filter_on = {"19": "img/19_filter_on.png",
-					 "38": "img/38_filter_on.png"}
+var icon_filter_on = {"19": "img/filter_on_19.png",
+					 "38": "img/filter_on_38.png"}
 // make it easy to set the icon
 icon = {"on": icon_filter_on, "off": icon_filter_off}
 
@@ -12,7 +12,7 @@ function initialize() {
 
 function setIcon(tabId) {
 	chrome.storage.local.get("state", function (result) {
-		chrome.pageAction.setTitle({tabId: tabId, title: "8tracks Filter " + result["state"]})
+		chrome.pageAction.setTitle({tabId: tabId, title: "8tracks filter " + result["state"]})
 
 		chrome.pageAction.setIcon({tabId: tabId, path: icon[result["state"]]})
 	})
