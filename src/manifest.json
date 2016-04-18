@@ -13,10 +13,10 @@
     "scripts": ["background.js"]
   },
   "permissions": [
-  "tabs",
-  "background",
-  "storage",
-  "*://*.8tracks.com/*"
+      "tabs",
+      "background",
+      "storage",
+      "*://*.8tracks.com/*"
   ],
   "page_action": {
     "default_icon": {
