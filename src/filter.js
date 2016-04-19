@@ -1,9 +1,22 @@
+function hide_covers() {
+    // Remove covers
+    $(".mix_element div.cover").remove()
+    // Add class so cards can be restyled
+    $(".mix_card.half_card").addClass("ext-coverless_card")
+
+    // Remove covers on track page
+    $("#cover_art").remove()
+    // Remove covers in the sidebar of a track page
+    $(".card.sidebar_mix .cover").remove()
+    $(".card.sidebar_mix").addClass("ext-coverless_card")
+}
+
 function filter() {
-  chrome.storage.local.get("state", function(result) {
-      if(result["state"] == "on") {
-          $("img.cover").remove()
-      }
-  });
+    chrome.storage.local.get("state", function(result) {
+        if(result["state"] == "on") {
+            hide_covers()
+        }
+    });
 }
 // Make sure that when we navigate the site (which doesn't refresh the page), the filter is still run
 $('#body_container').bind('DOMSubtreeModified',filter);
