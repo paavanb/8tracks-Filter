@@ -29,6 +29,7 @@
     {
       "matches": ["*://*.8tracks.com/*"],
       "js": ["jquery.js", "filter.js"],
+      "css": ["style.css"],
       "run_at": "document_idle"
     }
   ]

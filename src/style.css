@@ -1,0 +1,9 @@
+.mix_card.ext-coverless_card .mix_element {
+  padding-left: 5px;
+}
+
+.mix_card.half_card.ext-coverless_card {
+  height: 250px;
+  min-height: 250px;
+  padding-bottom: 10px;
+}
