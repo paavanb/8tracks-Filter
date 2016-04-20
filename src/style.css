@@ -12,3 +12,7 @@
   min-height: 250px;
   padding-bottom: 10px;
 }
+
+.suggested_collections .suggested_collection.ext-coverless_card {
+  padding-top: 10px;
+}

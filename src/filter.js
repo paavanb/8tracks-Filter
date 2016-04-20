@@ -9,6 +9,10 @@ function hide_covers() {
     // Remove covers in the sidebar of a track page
     $(".card.sidebar_mix .cover").remove()
     $(".card.sidebar_mix").addClass("ext-coverless_card")
+
+    // Remove covers in "suggested collections"
+    $(".suggested_collection .covers").remove()
+    $(".suggested_collection").addClass("ext-coverless_card")
 }
 
 function filter() {
