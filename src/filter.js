@@ -13,6 +13,11 @@ function hide_covers() {
     // Remove covers in "suggested collections"
     $(".suggested_collection .covers").remove()
     $(".suggested_collection").addClass("ext-coverless_card")
+
+    // Remove mini covers ("Because you liked ____")
+    // Replace with 8tracks icon
+    $(".card img.mini-cover")
+        .replaceWith("<span class='avatar'><span class='i-logo'></span></span>")
 }
 
 function filter() {
