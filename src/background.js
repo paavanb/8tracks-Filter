@@ -12,7 +12,7 @@ var icon_filter_on = {
 icon = {"on": icon_filter_on, "off": icon_filter_off}
 
 function initialize() {
-    chrome.storage.local.set(({state: "on"}))
+    chrome.storage.local.set(({state: "off"}))
 }
 
 function setIcon(tabId) {
