@@ -19,5 +19,6 @@ function filter() {
     });
 }
 // Make sure that when we navigate the site (which doesn't refresh the page), the filter is still run
-$('#body_container').bind('DOMSubtreeModified',filter);
+var observer = new MutationObserver(filter)
+observer.observe(document.getElementById("main"), {childList: true, subtree: true})
 filter();
