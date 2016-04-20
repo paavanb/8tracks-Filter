@@ -20,14 +20,10 @@ function hide_covers() {
         .replaceWith("<span class='avatar'><span class='i-logo'></span></span>")
 }
 
-function filter() {
-    chrome.storage.local.get("state", function(result) {
-        if(result["state"] == "on") {
-            hide_covers()
-        }
-    });
-}
-// Make sure that when we navigate the site (which doesn't refresh the page), the filter is still run
-var observer = new MutationObserver(filter)
-observer.observe(document.getElementById("main"), {childList: true, subtree: true})
-filter();
+chrome.storage.local.get("state", function(result) {
+    if(result["state"] == "on") {
+        // Make sure that when we navigate the site (which doesn't refresh the page), the filter is still run
+        var observer = new MutationObserver(hide_covers)
+        observer.observe(document.getElementById("main"), {childList: true, subtree: true})
+    }
+});
